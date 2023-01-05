@@ -1,0 +1,558 @@
+/*HTML RESET*/
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul,
+dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object,
+a, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span,
+strong, sub, sup, tt, var, legend, fieldset, header, nav {
+	margin: 0;
+	padding: 0;
+}
+
+img, fieldset {
+	border: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+header, nav {
+    display: block;
+}
+
+body {
+    font-family: 'Source Sans Pro', Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(15, 2, 25);
+    text-decoration: none;
+}
+
+p {
+    margin: 1em 0 1em 0;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+a, a:hover, a:visited {
+    color: #87cefa;
+    text-decoration: underline;
+}
+
+strong {
+    color: white;
+}
+
+strong a {
+    color: white;
+    text-decoration: underline;
+}
+
+div a {
+    color: #87cefa;
+    text-decoration: underline;
+}
+
+div a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+b {
+    color: #87cefa;
+    font-weight: bold;
+}
+
+a b {
+    color: #87cefa;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:hover b {
+    color: white;
+    text-decoration: underline;
+}
+
+ul, ol {
+    margin-left: 16px;
+    padding: 0 8px 0 8px;
+}
+
+li {
+    padding: 3px 0 0 12px;
+}
+
+form {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+
+/* core page */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    padding: 4px;
+    width: 800px;
+    background-color: rgb(51, 51, 51);
+}
+
+.Main-Body {
+    padding: 0 8px 0 8px;
+}
+
+#site_header {
+    clear: both;
+    border: 0;
+}
+
+#header {
+    width: 800px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+#header_text_block {
+    width: calc(100% - 8px);
+}
+
+h1 {
+    color: #00aa00;
+    padding: 0;
+    text-align: center;
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+h2 {
+    clear: both;
+    padding: 0 4px 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #3D85C6;
+    color: white;
+}
+
+.HeadBeginText {
+    text-align: center;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FF0000;
+}
+
+.sub-note {
+    margin: 0 0 4px 0;
+    font-weight: 400;
+    text-align: center;
+    color: gold;
+}
+
+.vselect-note {
+    margin: 8px;
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.vselect-label {
+    margin: 4px;
+    padding-top: 3px;
+    float: left;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    color: #FF0000;
+}
+
+.show {
+    display: inherit;
+}
+
+.quiz-tense-group {
+    margin: 4px 0 4px 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: deepskyblue;
+    border-radius: 4px;
+}
+
+.tense-instruct {
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.tense-example {
+    margin-left: 4px;
+    font-weight: 400;
+    font-style: italic;
+    color: #b1c8d0;
+}
+
+hr {
+    float:left;
+    width:100%;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #999;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*===================================================================================*/
+.vhelp {
+    font-size: 16px;    /* Most important: other sizes are em-values, thus relative to this. */
+    display: inline-block;
+    height: 24px;  /* font-size + card padding, border + another pixel top/bottom */
+    margin: 3px 0 0 0;
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+/*FROM https://stackoverflow.com/questions/41461101/flip-a-3d-card-with-css  */
+/*c, f, b = character/card to flip, f=front, b=back (of card)*/
+.c {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    height: 1.1em;
+    line-height: 1.1em;
+    text-align: center;
+    vertical-align: baseline;
+    perspective: 30rem;
+}
+
+.f, .b {
+  position: absolute;
+  padding: 3px 0 4px 0;
+  width: 1.1em;
+  height: 1.1em;
+  border: 1px solid #666;
+  transition: transform .25s;
+  backface-visibility:hidden;
+}
+
+.f {
+    background-color: black;
+}
+
+.b {
+    background-color: #666;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.c:hover .f{
+    transform: rotateY(180deg);
+    cursor: default;
+}
+
+.c:hover .b{
+    transform: rotateY(0deg);
+    cursor: default;
+}
+
+/*Apply to a card once proper answer(char) obtained*/
+.frontflipped  { transform: rotateY(180deg); }
+.backflipped { transform: rotateY(0deg); }
+
+
+.field-label {
+    vertical-align: top;
+    padding: 4px;
+    margin-left: 50px;
+    height: 1.1em;
+    font-weight: bold;
+    color: white;
+}
+
+.fields-row {
+    display: inline-block;
+    width: calc(100% - 8px);
+    padding: 4px;
+    font-size: 16px;
+    color: white;
+    text-align: left;
+}
+
+.lbl-subj-short {
+    width: 42px;
+    float: left;
+    text-align: right;
+    margin: 1px; /*match border size of edit-div */
+    padding: 5px 3px 0 0;
+    height: 1.1em;
+    color: lightgreen;
+}
+
+.edit-div {
+    min-width: 300px;
+    float: left;
+    border: 1px solid #666;
+    padding: 4px;
+    background-color: #444;
+    height: 1.1em;
+    overflow: hidden;
+    letter-spacing: 2px;
+    font-size: 110%;
+}
+
+.solution {
+    float: left;
+    min-width: 350px;
+    margin: 0;
+    padding: 0;
+}
+
+.irregularVerbDiv {
+    color: #FF0000;
+    display: inline-block;
+}
+
+.verb-info-group, .subject-help-group, .settings-v-filter, .settings-group-v, .settings-group-s {
+    clear: both;
+    padding: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    margin: 4px 0 4px 0;
+    border-radius: 4px;
+}
+
+.verb-info-group {
+    border: 2px solid gold;
+}
+
+.subject-help-group {
+    color: lightgreen;
+    border: 2px solid lightgreen;
+}
+
+.settings-v-filter {
+    border: 2px solid red;
+}
+.settings-group-v {
+    border: 2px solid #3D85C6;
+}
+.settings-group-s {
+    border: 2px solid lightgreen;
+}
+
+.filter-hdr {
+    color: red;
+    font-weight: 600;
+    border-bottom: 2px solid red;
+}
+.verb-info-hdr {
+    color: gold;
+    font-weight: 600;
+    border-bottom: 2px solid gold;
+}
+
+.verb-hdr {
+    background-color: #3D85C6;
+    font-weight: 600;
+    border-bottom: 2px solid #3D85C6;
+}
+
+.subject-hdr {
+    color: lightgreen;
+    font-weight: 600;
+    border-bottom: 2px solid lightgreen;
+}
+
+.subject-help {
+    margin: 0 0 0 4px;
+    font-weight: 400;
+    color: lightgreen;
+    line-height: 18px;
+}
+
+.subject-note {
+    margin: 8px 4px 4px 4px;
+    font-weight: 400;
+    font-style: italic;
+    color: #b1c8d0;
+}
+
+.ConjBase {
+    background-color: #3D85C6;
+}
+.ConjImperative {
+    background-color: slateblue;
+}
+.ConjComposto {
+    background-color: darkslateblue;
+}
+
+.conj-tense-group {
+    margin: 4px 0 4px 0;
+}
+
+.conj-row {
+    display: inline-flex;
+    padding: 0 4px 4px 4px;  /* TRBL or, with 2-val method: (TB LR)*/
+    font-size: 16px;
+    color: white;
+    text-align: left;
+}
+
+.conjVerbSubjShort {
+    color: #b1c8d0;
+    width: 110px;
+    margin: 0 8px 0 4px;
+    float: left;
+    font-weight: 600;
+    text-align: right;
+}
+
+.conjVerbTense {
+    vertical-align: top;
+    float: left;
+    width: 135px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.irregularVerb {
+    color: #FF0000;
+}
+.defectiveVerb {
+    color: darkorange;
+}
+.altParticiple {
+    color: fuchsia;
+}
+
+.bg-info  {
+    background-color: lightyellow;
+    color: black;
+}
+
+.bg-warn  {
+    background-color: gold;
+    color: black;
+}
+
+.bg-error  {
+    background-color: lightcoral;
+    color: black;
+}
+
+.info  {
+    color: lightyellow;
+}
+
+.warn  {
+    color: gold;
+    font-weight: bold;
+}
+
+.error  {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: lightgreen;
+}
+
+/*DIV-based "buttons"*/
+#action-buttons {
+    display: inline-flex;
+}
+
+.d-btn {
+    display: inline-flex;
+    white-space: nowrap;
+    color: navy;
+    font-size: 120%;
+    background-color: #eee;
+    text-decoration: none;
+    border: 2px solid #666;
+    border-radius: 4px;
+    margin: 2px 2px 0 2px;
+    padding: 1px;
+}
+
+.d-btn:hover, .d-btn:focus {
+    text-decoration: none;
+    color: black;
+    border: 2px solid #0066FF;
+}
+
+.d-btn:focus {
+    background-color: lightgreen;
+}
+
+.footer-row {
+    clear: both;
+    background-color: #2e6495;
+    margin: 2px 0 0 0;
+    border-bottom: 2px solid black;
+    color: black;
+    font-size: .8em;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.footer-row a {
+    color: black;
+    text-decoration: none;
+}
+
+/* **MEDIA QUERIES** */
+/* >801px PC,lgMob*/
+@media screen and (min-width: 50.0625em) {
+    .container {
+        border: 1px solid white;
+     }
+}
+
+/* <=800px (typ mobile portrait max)*/
+@media screen and (max-width: 50em) {
+    .container {
+        margin: 0;
+        width: 99%;
+     }
+}
+
+.conj-set-ckhdr-inset {
+    margin-left: 20px;
+}
+.conj-set-ckbox-inset {
+    margin-left: 40px;
+}
+.conj-set-text-inset {
+    display: inline-block; 
+    margin-left: 45px;
+}
+
+select {
+    width: 20em;
+    margin:4px;
+    background-color: rgba(0,0,0,0.3);
+    color:#fff;
+}
+select option {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+
+.dataDump {
+    color: gold;
+}

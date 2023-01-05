@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600">
+    <link rel="stylesheet" type="text/css" href="conj-teste.css" />
+    <link rel="stylesheet" type="text/css" href="autocomplete.css" />
+    <script src="autocomplete.js"></script>
+    <title>Portuguese Verbs Conjugation &amp; Quiz Tool &mdash; Ferramenta de Conjugação e de Teste de Verbos do Português</title>
+</head>
+<body>
+<div id="page" class="container">
+<div id="topmost_band">
+    <header id="site_header">
+        <div>
+            <div id="header_text_block">
+                <h1>Portuguese Verbs Conjugation &amp; Quiz Tool<br>
+                    Ferramenta de Conjugação e de Teste de Verbos do Português</h1>
+                <div class="HeadBeginText">Simply select a Portuguese verb and then click "Quiz!" or "Conjugate!"<br>
+                    Basta selecionar um verbo em português e clicar em "Questionar! (Quiz)" ou "Conjugar!"</div>
+                <div class="sub-note ">Learn all the varied conjugated forms of Portuguese Verbs through Quizzes<br>
+                    Aprenda todas as variadas formas conjugadas de Verbos Portugueses através de Quizzes</div>
+            </div>
+        </div>
+    </header>
+</div> <!-- END: topmost_band -->
+
+<div id="main-region" class="main-body-container">
+    <div class="subject-note">Select the verb to conjugate.<br>
+    This is the infinitive form of the verb to conjugate &mdash; (PT: Infinitivo Impessoal, EN: Impersonal Infinitive)</div>
+    <div class="vselect-note">
+        <div class="vselect-label">Verbo:</div>
+        <div id="inVerbs" contenteditable="true" class="edit-div" tabindex="0"></div>
+        </div>
+        <div id="action-buttons">
+            <div id="btnQuiz" class="d-btn" data-tag="1" tabindex="0">Quiz!</div>
+            <div id="btnConj" class="d-btn" data-tag="2" tabindex="0">Conjugate!</div>
+            <div id="btnConf" class="d-btn" data-tag="3" tabindex="0">Settings</div>  
+        </div>
+    </div>
+
+<!--=========================================-->
+<!--BEGIN: ES-BUILT CONJUGATIONS, QUIZ, ETC -->
+<!--=========================================-->
+<div id="workarea">
+</div> <!-- workarea (built-area of page) -->
+<!--=========================================-->
+<!--END: BUILT-AREA  -->
+<!--=========================================-->
+
+<div class="footer-row">
+    <a href="conjugador-teste.html">Esta Ferramenta de Conjugação e de Teste de Verbos do Português ("Quiz")</a> 
+    é Copyright &copy; Michael Eberhart, 2020, All Rights Reserved
+</div>
+</div> <!-- main-region -->
+</div> <!-- container -->
+</body>
+
+<script async type="module" src="main.js"></script>
+</html>
