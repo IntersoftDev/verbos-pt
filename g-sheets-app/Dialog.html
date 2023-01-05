@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <script>
+        /**
+         * When user clicks, on this page, the [Execute] button, call the server to either:
+         * 1) Update a g-Doc with built JS code from values in the sheets, or
+         * 2) Update the KnownVerbs worksheet RuleMatched column
+         * 
+         * NOTE: in code below, the this(object) = the clicked button-element. 
+         */
+        function onExecuteClick() {
+          this.disabled = true;      
+          showStatus('Working...');
+      
+          // Send the value to the server and handle the response.
+          google.script.run
+              .withSuccessHandler(
+                function(msg, element) {
+                  // Respond to success conditions here.
+                  showStatus('Execution successful.');
+                  element.disabled = false;
+                })
+              .withFailureHandler(
+                function(msg, element) {
+                  // Respond to failure conditions here.
+                  showStatus('Execution failed: ' + msg, 'error');
+                  element.disabled = false;
+                })
+              .withUserObject(this)
+              // Gather any information that needs to be sent to the server here.
+              .executeChosenAction(document.querySelector('input[name="qryChoice"]:checked').value); //PASS the SELECTED QUERY TYPE to run
+        }      
+      
+        /**
+         * Displays the given status message in the dialog.   *
+         * @param {String} msg The status message to display (supports HTML / styling).
+         */
+        function showStatus(msg) {
+            document.getElementById("dialog-status").innerHTML = msg;
+        }      
+      </script>
+  </head>
+  <!-- HTML for modal dialog -->
+  <body>
+    <h3>Custom Actions Available:</h3>
+    <div>
+      1) Compute the KnownVerbs worksheet's <b>RuleMatched</b> column values.
+      <br>Perform this action first if any rules were altered or any verbs added or removed.
+      <br>or,
+      <br>2) Generate a Google-Docs file containing JS code for:
+      <pre>
+  ⇒ Conjugation Rules .. (output file name: jsPTVerbosCreateConjugationRulesData)
+  ⇒ Known Verbs ........ (output file name: jsPTVerbosCreateKnownVerbsData)
+  NOTE: the Output file name must exist in the same directory 
+  as this Sheet; existing output file contents will be replaced.
+</pre>
+      <h3>Select Action to Execute:</h3>
+      <div class="block" id="dialog-elements">      
+        <div id="dialog-action-select">
+          <input type="radio" name="qryChoice" id="radio-matchs" value="CalcMatches" checked="checked">
+          <label for="radio-knownV">Compute the KnownVerbs Spreadsheet RuleMatched Column values</label><br>
+          <input type="radio" name="qryChoice" id="radio-rules" value="ConjRules">
+          <label for="radio-rules">Generate Conjugation Rules File (JS code)</label><br>
+          <input type="radio" name="qryChoice" id="radio-knownV" value="KnownVerbs">
+          <label for="radio-knownV">Generate Known Verbs File (JS code)</label>
+        </div>
+        <br>
+        <label for="dialog-action-select">Click "Execute" to perform chosen operation.</label>
+      </div>
+      <div class="block" id="dialog-button-bar">
+          <button class="action" id="dialog-execute-button" onclick="onExecuteClick()">Execute</button>
+          <button id="dialog-cancel-button" onclick="google.script.host.close()">Cancel</button>
+      </div>
+      <div id="dialog-status"></div>
+    </div>
+  </body>
+</html>
