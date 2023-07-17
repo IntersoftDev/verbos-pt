@@ -60,7 +60,7 @@ const arrSubjects =
     SubjectEN:"Us",
     SubjectPT:"nós",
     SubjectDescEN:"Us, we",
-    SubjectDescPT:"nós, a gente",
+    SubjectDescPT:"nós",
     Notes:"Nós will appear more often in written form whereas \"a gente\" is more likely in conversational Portuguese [PT]."
 }, {
     SubjectID:5,
