@@ -1,4 +1,4 @@
-//Copyright © Michael Eberhart (suretalent.blogspot.com), 2020, All Rights Reserved
+//Copyright © Michael Eberhart (suretalent.blogspot.com), 2023, All Rights Reserved
 import * as formedVerbs from './formed-verbs.js';
 import * as vTenses     from './verb-tenses.js';
 import * as vSubjects   from './verb-subjects.js';
